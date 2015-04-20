@@ -81,56 +81,56 @@ chrome打开任意页面，添加书签，标题写 JSBridge，内容写以下�
 >}
 >
 返回消息具体实现
->function (retObj, param, strFunc) {
->
->        var rnd = [],
->
->            idx = 0,
->
->            msg = '';
->
->        for (var i in retObj) {
->
->            if (i != 'ret') {
->
->                rnd.push(i);
->
->            }
->
->        }
->
->        param = param || {};
->
->        if (strFunc && strFunc in WeixinJSBridge.settings && WeixinJSBridge.settings[strFunc] in retObj) {
->
->            param.ret = WeixinJSBridge.settings[strFunc];
->
->        }
->
->        if (typeof (window[strFunc]) == 'function') {
->
->            var ret = window[strFunc].call(WeixinJSBridge, retObj, param);
->
->            if (typeof (ret) == 'string' && ret in retObj) {
->
->                param.ret = ret;
->
->            }
->
->        }
->
->        idx = ('ret' in param && param.ret in retObj) ? param.ret : rnd[Math.floor(Math.random() * rnd.length)],
->
->        msg = retObj[idx];
->
->        return {
->
->            err_code: idx,
->
->            err_msg: msg
->
->        };
->
->    }
->
+         (retObj, param, strFunc) {
+        
+        var rnd = [],
+        
+            idx = 0,
+        
+            msg = '';
+        
+        for (var i in retObj) {
+        
+            if (i != 'ret') {
+        
+                rnd.push(i);
+        
+            }
+        
+        }
+        
+        param = param || {};
+        
+        if (strFunc && strFunc in WeixinJSBridge.settings && WeixinJSBridge.settings[strFunc] in retObj) {
+        
+            param.ret = WeixinJSBridge.settings[strFunc];
+        
+        }
+        
+        if (typeof (window[strFunc]) == 'function') {
+        
+            var ret = window[strFunc].call(WeixinJSBridge, retObj, param);
+        
+            if (typeof (ret) == 'string' && ret in retObj) {
+        
+                param.ret = ret;
+        
+            }
+        
+        }
+        
+        idx = ('ret' in param && param.ret in retObj) ? param.ret : rnd[Math.floor(Math.random() * rnd.length)],
+        
+        msg = retObj[idx];
+        
+        return {
+        
+            err_code: idx,
+        
+            err_msg: msg
+        
+        };
+        
+        
+        
 运行结果：
