@@ -88,4 +88,4 @@ function process(retObj, param, strFunc) {
 ```
 
 - 运行结果：
-![Result](https://raw.githubusercontent.com/mooring/wechat/master/img/1420780650_10.png.png)
+![Result](https://raw.githubusercontent.com/mooring/wechat/master/img/1420780650_10.png)
