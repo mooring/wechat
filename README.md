@@ -4,7 +4,7 @@
 chrome打开任意页面，添加书签，标题写 JSBridge，内容写以下内容
 
     javascript:void((function(){var d=document.createElement('script');d.type='text/javascript';d.src='http://3glogo.gtimg.com/wxgame/rs/pcjsBridge.js?t=1420788186';document.body.appendChild(d);})())
-![Bookmark][https://raw.githubusercontent.com/mooring/wechat/master/img/9a36a0c5d2edd797b49f73bb861e104c1420771520.png]
+![Bookmark](https://raw.githubusercontent.com/mooring/wechat/master/img/9a36a0c5d2edd797b49f73bb861e104c1420771520.png)
 当页面加载完成时，点刚刚添加的书签，此时WeixinJsBridge就可以正常调用了
 
 如果已经填加了`document.addEventListener('WeixinJSBridgeReady',function abc(){ })`
@@ -86,4 +86,4 @@ function process(retObj, param, strFunc) {
 
 
 - 运行结果：
-![Result][https://raw.githubusercontent.com/mooring/wechat/master/img/1420780650_10.png.png]
+![Result](https://raw.githubusercontent.com/mooring/wechat/master/img/1420780650_10.png.png)
