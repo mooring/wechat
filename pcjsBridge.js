@@ -530,7 +530,7 @@ bookmark:
 javascript: void((function () {
     var d = document.createElement('script');
     d.type = 'text/javascript';
-    d.src = 'http://3glogo.gtimg.com/wxgame/rs/24813df1ffc5a674178454958171fcb8.js';
+    d.src = 'https://raw.githubusercontent.com/mooring/wechat/master/pcjsBridge.js';
     document.body.appendChild(d);
 })())
 */
