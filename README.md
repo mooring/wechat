@@ -12,7 +12,6 @@ chrome打开任意页面，添加书签，标题写 JSBridge，内容写以下�
 此时abc函数就会被调用了
 
 - 自定义返回值，以`WeixinJSBridge.invoke('getInstallState',{},function(res){})`为例 分两种方式：
-
 ```javascript
 //传入参数ret为PC版特有，可选，用于调用PC侧模拟接口时用该值做为回调函数的返回值
 WeixinJSBridge.invoke('getInstallState', {
@@ -26,7 +25,10 @@ WeixinJSBridge.invoke('getInstallState', {
         }
     }
 );
+```
+
 - 所有接口统一返回 安装成功
+```javascript
 `WeixinJSBridge.setReturn('getInstallState', 'yes');`
 //通过传入参数来确定返回值，定义`window.getInstallState`为函数，并且让该函数直接返回对应`key`值
 //@ param retObj 可以支持的返回状态对象，return 对应的值 ** 必须 ** 为retObj的key才会第一次
@@ -36,6 +38,7 @@ function getInstallState(retObj, callParam) {
     //console.log(callParam);
     return 'yes'; // yes/no
 }
+```
 
 - 回调函数调用优先级高于`setReturn`,同时设置`WeixinJSBridge.setReturn`和定义对应的接口函数时，`setReturn`的返回值不生效##
 运行实例：
@@ -52,10 +55,9 @@ function getInstallState(ret, gameinfo){
         return 'yes'
     }
 }
-
+```
 
 - 返回消息具体实现
-
 ```javascript
 function process(retObj, param, strFunc) {
     var rnd = [],
@@ -83,7 +85,7 @@ function process(retObj, param, strFunc) {
         err_msg: msg
     };
 }
-
+```
 
 - 运行结果：
 ![Result](https://raw.githubusercontent.com/mooring/wechat/master/img/1420780650_10.png.png)
